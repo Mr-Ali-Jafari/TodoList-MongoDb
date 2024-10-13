@@ -1,0 +1,28 @@
+<!-- templates/todo_list.html -->
+{% extends "base.html" %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block content %}
+<h1>Your Todos</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Done</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for todo in todos %}
+        <tr>
+            <td>{{ todo['title'] }}</td>
+            <td>{{ todo['category'] }}</td>
+            <td>{{ todo['priority'] }}</td>
+            <td>{{ 'Yes' if todo['is_done'] else 'No' }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
